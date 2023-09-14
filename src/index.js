@@ -78,6 +78,8 @@ else {arr.push(string[i])}
 return arr.join('')
 }
 
+//analyze array
+
 
 
 
