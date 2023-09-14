@@ -1,17 +1,16 @@
 
 //import sum from './index';
 import {
-  sum,
+  
   capitalize,
   reverse,
   calculator,
-  caesar
+  caesar,
+  analyzeArray
 } from "./index";
 
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
-});
+
 
 //capitalize string test
 
@@ -58,4 +57,15 @@ test('works with numbers and char', () => {
 
 test('works with upper and lower cases', () => {
   expect(caesar(2, 'Ab')).toBe('Cd');
+});
+
+//analyze array
+
+test('test analyze array for correct object', () => {
+  expect(analyzeArray([1,8,3,4,2,6])).toEqual({
+    "average": 4,
+    "min": 1,
+    "max": 8,
+    "length": 6
+});
 });

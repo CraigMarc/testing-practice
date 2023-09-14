@@ -1,14 +1,12 @@
 //import './styles.css';
 
-function sum(a, b) {
-    return a + b;
-}
 //capitalize string
 function capitalize(string) {
 
     return string[0].toUpperCase() + string.slice(1)
 
 }
+
 
 //reverse string
 function reverse(string) {
@@ -43,52 +41,65 @@ const calculator = {
     subtract,
     divide,
     multiply,
-  };
+};
 
 
 //Caesar cipher
 
 function caesar(index, string) {
 
-let regex = /[a-zA-Z]/
-let arr = []
+    let regex = /[a-zA-Z]/
+    let arr = []
 
-for (let i = 0; i < string.length; i++) {
-if (regex.test(string[i]) == true) {
+    for (let i = 0; i < string.length; i++) {
+        if (regex.test(string[i]) == true) {
 
-    let shift = string.charCodeAt(i) + index
-    
+            let shift = string.charCodeAt(i) + index
 
-    if (/[a-z]/.test(string[i]) == true && shift > 122 ) {
-        shift = (shift - 122) + 96
+
+            if (/[a-z]/.test(string[i]) == true && shift > 122) {
+                shift = (shift - 122) + 96
+            }
+
+            if (/[A-Z]/.test(string[i]) == true && shift > 90) {
+                shift = (shift - 90) + 64
+
+            }
+
+
+
+            arr.push(String.fromCharCode(shift))
+        }
+        else { arr.push(string[i]) }
+
     }
-
-    if (/[A-Z]/.test(string[i]) == true && shift > 90 ) {
-        shift = (shift - 90) + 64
-        
-    }
-
-
-   
-    arr.push(String.fromCharCode(shift))
-}
-else {arr.push(string[i])}
-
-}
-return arr.join('')
+    return arr.join('')
 }
 
 //analyze array
 
+function analyzeArray(array) {
+
+    const average = array => array.reduce((a, b) => a + b) / array.length;
+
+    const length = array.length
+
+    const min = Math.min.apply(null, array)
+
+    const max = Math.max.apply(null, array);
+
+    return { average: average(array), min: min, max: max, length: length }
+
+}
 
 
 
 
 //export default sum;
 export {
-    sum,
     capitalize,
     reverse,
     calculator,
     caesar,
+    analyzeArray
 };
